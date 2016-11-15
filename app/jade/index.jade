@@ -1,0 +1,10 @@
+extends templates/head_template
+include templates/_mixins
+block title
+    title Start template
+block content
+    include header
+    include main
+    include footer
+    script(src = "js/libs.min.js")
+    script(src="js/common.js")

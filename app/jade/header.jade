@@ -1,0 +1,12 @@
+// header
+
+header.header
+        .header_main_row
+            // logo
+            +logo_i('logo','Logo.svg')
+            // top_menu
+            a(href="#").toggle_menu
+                span.toggle_menu_span
+            +menu('top_nav', 'home' , 'about' , 'blog' , 'contact')
+            +icon('check','green_mod')
+

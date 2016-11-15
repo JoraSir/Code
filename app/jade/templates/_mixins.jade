@@ -1,0 +1,49 @@
+//-logo
+mixin logo(link)
+    .logo_w
+        a(href='#').logo=link
+//- Use: +logo(link)
+
+//-logo_img
+mixin logo_i(alt , file_name)
+    .logo_w
+        a(href='#').logo
+            img(alt=alt  src="img/" + file_name)
+//- Use: +logo_i('alt','file_name')
+
+
+//-navmenu
+mixin navmenu(className,classMod, ...links)
+    nav(class=className,class=classMod)
+        ul(class=className + "_list")
+            each link in links
+                li(class=className + "_item")
+                    a(href="#", class=className + "_link")=link
+
+//- Use: +navmenu('className','classMod','link1' , 'link2' , 'link3' , 'link4',...)
+
+//-menu
+mixin menu(className, active_link, ...links)
+    nav(class=className)
+        ul(class=className + "_list")
+            li(class=className + "_item")
+                a(href="#", class=className + "_link" class=className + "_active")=active_link
+            each link in links
+                li(class=className + "_item")
+                    a(href="#", class=className + "_link")=link
+//- Use: +menu('className', 'active_link','link2' , 'link3' , 'link4' , 'link5',...)
+
+
+//-img+wrap
+mixin img_w(alt, class_name, file_name)
+    div(class=class_name +"_i_w")
+        img(alt=alt class=class_name + "_i" src="img/"+file_name)
+//- Use: +img_w('alt','class_name','file_name')
+
+
+//-Svg_sprite icon
+mixin icon(name,mod)
+    - mod = mod || ''
+    svg(class="icon icon-" + name + ' ' + mod)
+        use(xlink:href="icons/sprite/sprite.svg#" + name)
+//- Use: +icon('icon_name','class_mod')
