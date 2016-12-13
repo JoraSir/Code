@@ -50,7 +50,7 @@ gulp.task('scripts', function() {
         .pipe(plumber())
         .pipe(concat('libs.min.js'))  // Собираем их в кучу в новом файле libs.min.js
         .pipe(uglify()) // Сжимаем JS файл
-        .pipe(gulp.dest('dist/js'));  // Выгружаем в папку app/js
+        .pipe(gulp.dest('app/js'));  // Выгружаем в папку app/js
 });
 
 //-------------------------------------------------Синхронизируем папки
@@ -87,7 +87,7 @@ gulp.task('watch', ['browser-sync','sass','scripts'], function() {
     gulp.watch('app/sass/**/*.+(scss|sass)',['sass']); // Наблюдение за sass файлами в папке sass
     gulp.watch('app/jade/**/*.jade', ['jade']); // Наблюдение за jade файлами
     gulp.watch('dist/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
-    gulp.watch('app/js/**/*.js', browserSync.reload);   // Наблюдение за JS файлами в папке js
+    gulp.watch('app/js/**/*.js',['jsSync'], browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 gulp.task('default', ['browser-sync','imageSync','icoSync','fontsSync','jsSync','watch']);
 
