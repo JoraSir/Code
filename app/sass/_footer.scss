@@ -2,15 +2,14 @@
 
 //------------------------------------------------------------layout
 .footer{
+    width: 100%;
     height: $height_footer;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    will-change: transform;
+    flex-shrink: 0;
 }
 .footer_main_row{
+    max-width: $page_width;
     padding: 0 $gl_indent;
+    margin: 0 auto;
 }
 //------------------------------------------------------------layout end
 

@@ -1,8 +1,9 @@
 @import "reset";
 
 @import "helpers/mixins";
+@import "helpers/components"; // components styles 
 @import "variables";
-@import "libs";         // js plugins styles 
+@import "libs";         // jQuery plugins styles
 
 @import "fonts";
 @import "base";

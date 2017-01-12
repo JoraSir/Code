@@ -1,6 +1,36 @@
-//-------------flex_block-----------
-@mixin flex_block($flex-direction : row, $flex-wrap: wrap, $content : space-between, $align-items : flex-start,$align-content : flex-start){
+// ------------------------------------------- loader --------------------------------------------
+@mixin loader($url_file) {
+  .loader {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+    background: none repeat scroll 0 0 #ffffff;
+    &:before{
+      content: '';
+      position: absolute;
+      height: 60px;
+      width: 60px;
+      margin-top: -30px;
+      margin-left: -30px;
+      left: 50%;
+      top: 50%;
+      background-image: url($url_file);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: #fff;
+    }
+  }
+}
+// -------------------------------------------  end --------------------------------------------
 
+//-------------------------------------------- flex_block ---------------------
+@mixin flex_block($flex-direction, $flex-wrap, $content, $align-items, $align-content){
   display: flex;
   flex-direction: $flex-direction;
   flex-wrap: $flex-wrap;
@@ -8,9 +38,9 @@
   align-content: $align-content;
   align-items: $align-items;
 }
-//--------------end-----------
+//--------------------------------------------- end ---------------------------
 
-//-------------overlay background color-----------
+//--------------------------------------------- overlay background color -----------
 @mixin overlay_bg($color){
   position: relative;
   z-index: 0;
@@ -25,7 +55,7 @@
     background-color: $color;
   }
 };
-//--------------end-----------
+//---------------------------------------------- end-------------------------------
 
 
 //-----font-face mixin----

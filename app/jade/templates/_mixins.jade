@@ -1,3 +1,9 @@
+//-loader
+mixin loader()
+    .loader
+
+//- Use: +loader
+
 //-logo
 mixin logo(link)
     .logo_w
@@ -47,3 +53,9 @@ mixin icon(name,mod)
     svg(class="icon icon-" + name + ' ' + mod)
         use(xlink:href="icons/sprite/sprite.svg#" + name)
 //- Use: +icon('icon_name','class_mod')
+
+//-m_button
+mixin m_button()
+    a(href="#" id="menuButton").menu-button
+        span.burger-icon
+//- Use: +m_button
