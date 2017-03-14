@@ -1,3 +1,31 @@
+// ------------------------------------------- breakpoints --------------------------------------------
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) { @content; }
+}
+@mixin for-desktop-down {
+  @media (max-width: 1799px) { @content; }
+}
+@mixin for-desktop-only {
+  @media (max-width: 1799px) and (min-width: 1200px) { @content; }
+}
+@mixin for-tablet-landscape-down {
+  @media (max-width: 1199px) { @content; }
+}
+@mixin for-tablet-landscape-only {
+  @media (max-width: 1199px) and (min-width: 900px) { @content; }
+}
+@mixin for-tablet-portrait-down {
+  @media (max-width: 899px) { @content; }
+}
+@mixin for-tablet-portrait-only {
+  @media (max-width: 899px) and (min-width: 600px) { @content; }
+}
+@mixin for-phone-only {
+  @media (max-width: 599px) { @content; }
+}
+
+// -------------------------------------------  end --------------------------------------------
+
 // ------------------------------------------- loader --------------------------------------------
 @mixin loader($url_file) {
   .loader {

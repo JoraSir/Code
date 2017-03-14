@@ -1,4 +1,4 @@
-//---------------------------------------------- loader
+/*----------------------------------------------- loader -----------------------------------------*/
 @include loader("../img/loader.svg");
 
 /*---------------------------------------------- header styles -----------------------------------------*/
@@ -17,21 +17,28 @@
 //------------------------------------------------------------ layout end
 
 //------------------------------------------------------------ burger_button
-.menu-button {
-	display: inline-block;
-	padding: .5em;
-	background-color: #fafafa;
-	border: 1px solid #ccc;
-  border-radius: 3px;
-}
+  .menu-button {
+    display: none;
+    padding: .5em;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
 
-.burger-icon {
-max-width: $page_width;	@include burger(25px, 3px, 5px, #444);
-}
+  .burger-icon {
+    max-width: $page_width;	@include burger(25px, 3px, 5px, #444);
+  }
 
-.menu-button.is-active .burger-icon {
-	@include burger-to-cross;
-}
+  .menu-button.is-active .burger-icon {
+    @include burger-to-cross;
+  }
+
+  @include for-tablet-portrait-down {
+    .menu-button{
+      display: inline-block;
+    }
+  }
+
 //------------------------------------------------------------ burger_button end
 
 .icon-check{
@@ -40,5 +47,4 @@ max-width: $page_width;	@include burger(25px, 3px, 5px, #444);
     color:green;
   }
 }
-
 /*--------------------------------------- header styles end --------------------------------------------*/
