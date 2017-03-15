@@ -36,7 +36,7 @@ gulp.task('sass', function(){
 });
 
 gulp.task('jade', function() {
-    return gulp.src('app/jade/index.jade')
+    return gulp.src('app/jade/*.jade')
         .pipe(plumber())
         .pipe(jade({pretty:true}))
         .pipe(gulp.dest('dist'));

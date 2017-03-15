@@ -18,18 +18,17 @@ mixin logo_i(alt , file_name)
 //- Use: +logo_i('alt','file_name')
 
 
-//-navmenu
-mixin navmenu(className,classMod, ...links)
-    nav(class=className,class=classMod)
-        ul(class=className + "_list")
-            each link in links
-                li(class=className + "_item")
-                    a(href="#", class=className + "_link")=link
-
-//- Use: +navmenu('className','classMod','link1' , 'link2' , 'link3' , 'link4',...)
-
 //-menu
-mixin menu(className, active_link, ...links)
+mixin menu(className,classMod, ...links)
+    ul(class=className + "_list")
+        each link in links
+            li(class=className + "_item" class=classMod)
+                a(href="#", class=className + "_link")=link
+
+//- Use: +menu('className','classMod','link1' , 'link2' , 'link3' , 'link4',...)
+
+//-navmenu
+mixin navmenu(className, active_link, ...links)
     nav(class=className)
         ul(class=className + "_list")
             li(class=className + "_item")
@@ -37,7 +36,7 @@ mixin menu(className, active_link, ...links)
             each link in links
                 li(class=className + "_item")
                     a(href="#", class=className + "_link")=link
-//- Use: +menu('className', 'active_link','link2' , 'link3' , 'link4' , 'link5',...)
+//- Use: +navmenu('className', 'active_link','link2' , 'link3' , 'link4' , 'link5',...)
 
 
 //-img+wrap

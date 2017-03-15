@@ -1,11 +1,24 @@
-extends templates/head_template
+extends layouts/default
 include templates/_mixins
-block title
-    title Start template
-block content
+
+block vars
+    -
+        page = {
+        language: 'ru',
+        name: 'home',
+        title: 'Start Template',
+        appTitle: 'Start Template',
+        description: 'Description of page'
+        }
     +loader
-    include header
-    include main
-    include footer
+block header
+    include templates/header
+
+block main
+    include pages/index/main
+
+block footer
+    include templates/footer
+
     script(src = "js/libs.min.js")
     script(src="js/common.js")
