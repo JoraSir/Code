@@ -1,20 +1,19 @@
 /*------------------------------------------- base styles ---------------------------------------------*/
 html{
   height: 100%;
-  font: 10px $font_f_base;
-  font-weight: normal;
+  font: normal 10px $font_f_base;
 }
 body{
-  height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
+  height: 100vh;
+  min-width:$page_min_width;
   font-size:$font_size_base;
+  line-height:1.5;
   color: $color_txt_base;
   background: $body_bg;
   overflow-x: hidden;
-  min-width:$page_min_width;
-  line-height:1.5;
 }
 a {
   outline: none;

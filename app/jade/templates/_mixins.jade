@@ -4,18 +4,20 @@ mixin loader()
 
 //- Use: +loader
 
+
 //-logo
 mixin logo(link)
     .logo_w
-        a(href='#').logo=link
+        a(href='#' title="#{page.title}").logo=link
 //- Use: +logo(link)
 
+
 //-logo_img
-mixin logo_i(alt , file_name)
+mixin logo_i(file_name,width)
     .logo_w
-        a(href='#').logo
-            img(alt=alt  src="img/" + file_name)
-//- Use: +logo_i('alt','file_name')
+        a(href='#' title="#{page.title}").logo
+            img(alt="#{page.title}"  src="img/" + file_name width=width)
+//- Use: +logo_i('file_name','width')
 
 
 //-menu

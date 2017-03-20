@@ -86,72 +86,23 @@
 //---------------------------------------------- end-------------------------------
 
 
-//-----font-face mixin----
-$asset-pipeline: false !default;
-@mixin font-face(
-  $font-family,
-  $file-path,
-  $weight: normal,
-  $style: normal,
-  $asset-pipeline: $asset-pipeline,
-  $file-formats: eot woff2 woff ttf svg) {
+//---------------------------------------------- font-face mixin ----------------------------------
 
-  $font-url-prefix: font-url-prefixer($asset-pipeline);
-
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ){
   @font-face {
     font-family: $font-family;
-    font-style: $style;
     font-weight: $weight;
+    font-style: $style;
 
-    src: font-source-declaration(
-                    $font-family,
-                    $file-path,
-                    $asset-pipeline,
-                    $file-formats,
-                    $font-url-prefix
-    );
-  }
-}
+    @if $asset-pipeline == true {
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype');
 
+    } @else {
+      src: url('#{$file-path}.eot');
+      src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype');
 
-@function font-url-prefixer($asset-pipeline) {
-  @if $asset-pipeline == true {
-    @return font-url;
-  } @else {
-    @return url;
-  }
-}
-
-@function font-source-declaration(
-  $font-family,
-  $file-path,
-  $asset-pipeline,
-  $file-formats,
-  $font-url) {
-
-  $src: ();
-
-  $formats-map: (
-          eot:   "#{$file-path}.eot?#iefix" format("embedded-opentype"),
-          woff2: "#{$file-path}.woff2" format("woff2"),
-          woff:  "#{$file-path}.woff" format("woff"),
-          ttf:   "#{$file-path}.ttf" format("truetype"),
-          svg:   "#{$file-path}.svg##{$font-family}" format("svg")
-  );
-
-  @each $key, $values in $formats-map {
-    @if contains($file-formats, $key) {
-      $file-path: nth($values, 1);
-      $font-format: nth($values, 2);
-
-      @if $asset-pipeline == true {
-        $src: append($src, font-url($file-path) $font-format, comma);
-      } @else {
-        $src: append($src, url($file-path) $font-format, comma);
-      }
     }
   }
-
-  @return $src;
 }
-// --------------end----
+// -------------------------------------------------------- end ----------------------------------------------------

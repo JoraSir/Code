@@ -1,4 +1,2 @@
-@include font-face("RalewayRegular", "../fonts/RalewayRegular/RalewayRegular", normal, $file-formats: eot woff ttf);
-@include font-face("RalewayBold", "../fonts/RalewayBold/RalewayBold", 700, $file-formats: eot woff ttf);
-@include font-face("RalewayLight", "../fonts/RalewayLight/RalewayLight", 300, $file-formats: eot woff ttf);
-@include font-face("RalewaySemiBold", "../fonts/RalewaySemiBold/RalewaySemiBold", 600, $file-formats: eot woff ttf);
+@include font-face("Raleway", "../fonts/RalewayRegular/RalewayRegular");
+@include font-face("Raleway", "../fonts/RalewayBold/RalewayBold", bold );

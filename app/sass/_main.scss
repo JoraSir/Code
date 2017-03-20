@@ -5,9 +5,19 @@
     width: 100%;
     flex: 1 0 auto;
 }
+.section_row{
+    max-width: $page_width;
+    padding: 0 $gl_indent;
+    margin: 0 auto;
+}
 //------------------------------------------------------------layout end
 
-
+.icon-check{
+    font-size: 2rem;
+    &.green_mod {
+        color:green;
+    }
+}
 
 
 /*----------------------------------------- main styles end ------------------------------------*/
