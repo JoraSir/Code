@@ -60,3 +60,12 @@ mixin m_button()
     a(href="#" id="menuButton").menu-button
         span.burger-icon
 //- Use: +m_button
+
+//-nav-menu multi-page
+mixin nav_menu(className)
+    nav(class=className)
+        ul(class=className + "_list")
+                each i in nav
+                    li(class=className + "_item")
+                        a(class=className + "_link" href=i.url)=i.name
+//- Use: +nav_menu('className');            
